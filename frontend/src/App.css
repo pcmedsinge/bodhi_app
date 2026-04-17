@@ -1,0 +1,349 @@
+.app-shell {
+  display: grid;
+  gap: 24px;
+  padding: 40px;
+}
+
+.hero-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+  gap: 20px;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top left, rgba(24, 123, 125, 0.18), transparent 30%),
+    linear-gradient(135deg, rgba(251, 248, 241, 0.96), rgba(239, 246, 244, 0.92));
+  overflow: hidden;
+}
+
+.hero-panel::after {
+  content: '';
+  position: absolute;
+  inset: auto -40px -60px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(214, 147, 77, 0.18);
+  filter: blur(6px);
+}
+
+.hero-copy,
+.status-panel,
+.panel,
+.metric-card {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow,
+.section-tag,
+.metric-label,
+.meta-label {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.73rem;
+  font-weight: 700;
+  color: var(--muted-strong);
+}
+
+.hero-text,
+.metric-note,
+.status-caption,
+.rank-row p,
+.condition-meta,
+.symptom-chip span,
+.state-copy {
+  color: var(--muted);
+}
+
+.status-panel {
+  align-self: start;
+  padding: 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(25, 93, 103, 0.12);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.status-live {
+  color: var(--teal-ink);
+  background: rgba(29, 128, 125, 0.12);
+}
+
+.status-down {
+  color: var(--alert);
+  background: rgba(176, 70, 53, 0.12);
+}
+
+.metric-grid,
+.content-grid,
+.explorer-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.metric-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.content-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.explorer-grid {
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.3fr);
+}
+
+.metric-card,
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.metric-card {
+  padding: 24px;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.accent-card {
+  background: linear-gradient(160deg, rgba(23, 118, 122, 0.96), rgba(12, 70, 88, 0.96));
+  border-color: transparent;
+}
+
+.accent-card .metric-label,
+.accent-card .metric-value,
+.accent-card .metric-note {
+  color: #f6fbfa;
+}
+
+.metric-value {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1;
+  color: var(--ink);
+}
+
+.panel {
+  padding: 24px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.rank-list,
+.condition-list,
+.symptom-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.rank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: var(--panel-muted);
+}
+
+.rank-row strong,
+.condition-name,
+.symptom-chip strong,
+.detail-meta strong {
+  color: var(--ink);
+}
+
+.rank-row span {
+  color: var(--teal-ink);
+  font-weight: 700;
+}
+
+.explorer-panel,
+.detail-panel {
+  min-height: 580px;
+}
+
+.explorer-header {
+  align-items: center;
+}
+
+.search-field input {
+  width: min(280px, 100%);
+  padding: 12px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+}
+
+.search-field input:focus-visible,
+.condition-item:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.condition-list {
+  max-height: 468px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.condition-item {
+  text-align: left;
+  display: grid;
+  gap: 6px;
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background: var(--panel-muted);
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.condition-item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(26, 101, 118, 0.18);
+}
+
+.condition-item-active {
+  background: rgba(24, 123, 125, 0.1);
+  border-color: rgba(24, 123, 125, 0.36);
+}
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.detail-meta > div {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--panel-muted);
+}
+
+.severity-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  background: rgba(128, 138, 145, 0.14);
+  color: var(--ink);
+}
+
+.severity-worrisome,
+.severity-characteristic,
+.severity-red-flag {
+  background: rgba(176, 70, 53, 0.14);
+  color: #8e2f22;
+}
+
+.severity-neutral,
+.severity-unspecified,
+.severity-no-triage-label {
+  background: rgba(128, 138, 145, 0.14);
+  color: var(--ink-soft);
+}
+
+.symptom-grid {
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+
+.symptom-chip {
+  display: grid;
+  gap: 8px;
+  min-height: 92px;
+  padding: 16px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 248, 246, 0.98));
+  border: 1px solid rgba(25, 93, 103, 0.1);
+}
+
+.banner.error {
+  padding: 14px 16px;
+  border-radius: 16px;
+  color: #8e2f22;
+  background: rgba(176, 70, 53, 0.1);
+  border: 1px solid rgba(176, 70, 53, 0.18);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1100px) {
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content-grid,
+  .explorer-grid,
+  .hero-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 18px;
+  }
+
+  .metric-grid,
+  .detail-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .panel,
+  .hero-panel,
+  .metric-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .panel-header,
+  .explorer-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-field input {
+    width: 100%;
+  }
+}
